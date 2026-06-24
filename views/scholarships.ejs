@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scholarships | KUni World</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo">
+        <img src="/images/logo.png" alt="KUni World">
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()" id="menuBtn">
+        ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/universities">Universities</a>
+        <a href="/consultant">AI Consultant</a>
+        <a href="/timeline">Timeline</a>
+        <a href="/comparison">Comparison</a>
+        <a href="/scholarships">Scholarships</a>
+        <a href="/calculator">Cost Calculator</a>
+    </div>
+</nav>
+
+<section>
+
+    <div class="hero">
+        <h1><i class="fa-solid fa-gift"></i> Scholarship Opportunities</h1>
+        <p>
+            Explore financial support programs available
+            for international students in Korea.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2><i class="fa-solid fa-flag"></i>Global Korea Scholarship (GKS)</h2>
+
+        <p>
+            Fully funded scholarship supported by the Korean Government.
+        </p>
+
+        <ul>
+            <li>100% Tuition Coverage</li>
+            <li>Monthly Living Allowance</li>
+            <li>Airfare Support</li>
+            <li>Korean Language Training</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><i class="fa-solid fa-book"></i>TOPIK Excellence Scholarship</h2>
+
+        <p>
+            Scholarship for students with strong Korean language proficiency.
+        </p>
+
+        <ul>
+            <li>TOPIK Level 5–6 Preferred</li>
+            <li>Partial Tuition Waiver</li>
+            <li>Academic Achievement Support</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><i class="fa-solid fa-graduation-cap"></i>University Merit Scholarship</h2>
+
+        <p>
+            Awarded to students with outstanding academic performance.
+        </p>
+
+        <ul>
+            <li>High GPA Requirement</li>
+            <li>Merit-Based Selection</li>
+            <li>Tuition Reduction Benefits</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><i class="fa-solid fa-earth-asia"></i>International Student Scholarship</h2>
+
+        <p>
+            Available at many Korean universities for international students.
+        </p>
+
+        <ul>
+            <li>20%–100% Tuition Discount</li>
+            <li>Based on Academic Records</li>
+            <li>Available for New and Current Students</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><i class="fa-solid fa-lightbulb"></i>Scholarship Tips</h2>
+
+        <ul>
+            <li>Maintain a strong GPA</li>
+            <li>Improve your TOPIK score</li>
+            <li>Prepare documents early</li>
+            <li>Check university deadlines regularly</li>
+        </ul>
+    </div>
+
+</section>
+
+<footer>
+    <hr>
+    <p>© 2026 KUni World. All Rights Reserved.</p>
+    <p>Your Gateway to Korean Universities</p>
+</footer>
+    <script>
+
+    function toggleMenu() {
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        navLinks.classList.toggle("show");
+
+        if (navLinks.classList.contains("show")) {
+            menuBtn.innerHTML = "✕";
+        } else {
+            menuBtn.innerHTML = "☰";
+        }
+
+    }
+
+    </script>
+</body>
+</html>

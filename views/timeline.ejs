@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>International Student Timeline | KUni World</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo">
+        <img src="/images/logo.png" alt="KUni World">
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()" id="menuBtn">
+        ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/universities">Universities</a>
+        <a href="/consultant">AI Consultant</a>
+        <a href="/timeline">Timeline</a>
+        <a href="/comparison">Comparison</a>
+        <a href="/scholarships">Scholarships</a>
+        <a href="/calculator">Cost Calculator</a>
+    </div>
+</nav>
+
+<section>
+
+    <div class="hero">
+        <h1><i class="fa-regular fa-clock"></i> International Student Timeline</h1>
+        <p>Your complete roadmap from preparation to graduation in Korea</p>
+    </div>
+
+    <div class="card">
+        <h2><i class="fa-solid fa-calendar-week"></i>12 Months Before Admission</h2>
+        <ul>
+            <li>Research Korean universities</li>
+            <li>Explore majors and career paths</li>
+            <li>Check admission requirements</li>
+            <li>Prepare language study plan</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><i class="fa-solid fa-layer-group"></i>6 Months Before Admission</h2>
+        <ul>
+            <li>Prepare TOPIK examination</li>
+            <li>Collect academic documents</li>
+            <li>Prepare recommendation letters</li>
+            <li>Translate required certificates</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><i class="fa-solid fa-note-sticky"></i>3 Months Before Admission</h2>
+        <ul>
+            <li>Submit university applications</li>
+            <li>Apply for scholarships</li>
+            <li>Prepare interview if required</li>
+            <li>Track application results</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><i class="fa-solid fa-plane"></i>After Acceptance</h2>
+        <ul>
+            <li>Apply for D-2 Student Visa</li>
+            <li>Reserve accommodation or dormitory</li>
+            <li>Book flight tickets</li>
+            <li>Prepare arrival documents</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><i class="fa-solid fa-flag"></i>Arrival in Korea</h2>
+        <ul>
+            <li>Move into dormitory</li>
+            <li>Apply for Alien Registration Card (ARC)</li>
+            <li>Open a Korean bank account</li>
+            <li>Purchase SIM card and transportation card</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><i class="fa-solid fa-graduation-cap"></i>During University Life</h2>
+        <ul>
+            <li>Maintain GPA requirements</li>
+            <li>Participate in student activities</li>
+            <li>Apply for scholarships</li>
+            <li>Gain internship experience</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><i class="fa-solid fa-trophy"></i>Graduation & Future Plans</h2>
+        <ul>
+            <li>Prepare employment documents</li>
+            <li>Apply for jobs in Korea</li>
+            <li>Consider graduate school programs</li>
+            <li>Explore visa transition options</li>
+        </ul>
+    </div>
+
+</section>
+
+<footer>
+    <hr>
+    <p>© 2026 KUni World. All Rights Reserved.</p>
+    <p>Your Gateway to Korean Universities</p>
+</footer>
+    <script>
+
+    function toggleMenu() {
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        navLinks.classList.toggle("show");
+
+        if (navLinks.classList.contains("show")) {
+            menuBtn.innerHTML = "✕";
+        } else {
+            menuBtn.innerHTML = "☰";
+        }
+
+    }
+
+    </script>
+</body>
+</html>

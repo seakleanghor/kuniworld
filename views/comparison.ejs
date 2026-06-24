@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>University Comparison | KUni World</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo">
+        <img src="/images/logo.png" alt="KUni World">
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()" id="menuBtn">
+        ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/universities">Universities</a>
+        <a href="/consultant">AI Consultant</a>
+        <a href="/timeline">Timeline</a>
+        <a href="/comparison">Comparison</a>
+        <a href="/scholarships">Scholarships</a>
+        <a href="/calculator">Cost Calculator</a>
+    </div>
+</nav>
+
+<section>
+
+    <div class="hero">
+        <h1><i class="fa-solid fa-scale-balanced"></i> University Comparison Tool</h1>
+        <p>
+            Compare Korean universities side by side
+            and find the best option for your future.
+        </p>
+    </div>
+
+    <div class="card">
+
+        <h2>Select Universities</h2>
+
+        <form action="/comparison" method="GET">
+
+            <select name="uni1">
+
+                <% universities.forEach(u => { %>
+
+                    <option value="<%= u.id %>">
+                        <%= u.name %>
+                    </option>
+
+                <% }) %>
+
+            </select>
+
+            <select name="uni2">
+
+                <% universities.forEach(u => { %>
+
+                    <option value="<%= u.id %>">
+                        <%= u.name %>
+                    </option>
+
+                <% }) %>
+
+            </select>
+
+            <button type="submit">
+                Compare
+            </button>
+
+        </form>
+
+    </div>
+
+    <% if (university1 && university2) { %>
+
+    <div class="card">
+
+        <h2>Comparison Result</h2>
+
+        <table>
+
+            <tr>
+                <th>Item</th>
+                <th><%= university1.name %></th>
+                <th><%= university2.name %></th>
+            </tr>
+
+            <tr>
+                <td>Location</td>
+                <td><%= university1.location %></td>
+                <td><%= university2.location %></td>
+            </tr>
+
+            <tr>
+                <td>Type</td>
+                <td><%= university1.type %></td>
+                <td><%= university2.type %></td>
+            </tr>
+
+            <tr>
+                <td>Major</td>
+                <td><%= university1.major %></td>
+                <td><%= university2.major %></td>
+            </tr>
+
+            <tr>
+                <td>Tuition</td>
+                <td><%= university1.tuition %></td>
+                <td><%= university2.tuition %></td>
+            </tr>
+
+            <tr>
+                <td>TOPIK Requirement</td>
+                <td><%= university1.topik %></td>
+                <td><%= university2.topik %></td>
+            </tr>
+
+            <tr>
+                <td>Dormitory</td>
+                <td><%= university1.dormitory %></td>
+                <td><%= university2.dormitory %></td>
+            </tr>
+
+            <tr>
+                <td>Scholarship</td>
+                <td><%= university1.scholarship %></td>
+                <td><%= university2.scholarship %></td>
+            </tr>
+
+            <tr>
+                <td>Ranking</td>
+                <td><%= university1.ranking %></td>
+                <td><%= university2.ranking %></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="card">
+
+        <h2><i class="fa-solid fa-file-lines"></i>Comparison Summary</h2>
+
+        <p>
+            This comparison helps international students evaluate
+            universities based on location, tuition, academic programs,
+            language requirements, scholarships, and overall ranking.
+        </p>
+
+        <p>
+            Consider your budget, preferred city, career goals,
+            and scholarship opportunities before making a decision.
+        </p>
+
+    </div>
+
+    <% } %>
+
+</section>
+
+<footer>
+    <hr>
+    <p>© 2026 KUni World. All Rights Reserved.</p>
+    <p>Your Gateway to Korean Universities</p>
+</footer>
+    <script>
+
+    function toggleMenu() {
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        navLinks.classList.toggle("show");
+
+        if (navLinks.classList.contains("show")) {
+            menuBtn.innerHTML = "✕";
+        } else {
+            menuBtn.innerHTML = "☰";
+        }
+
+    }
+
+    </script>
+</body>
+</html>

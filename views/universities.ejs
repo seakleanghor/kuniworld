@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>University List | KUni World</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo">
+        <img src="/images/logo.png" alt="KUni World">
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()" id="menuBtn">
+        ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/universities">Universities</a>
+        <a href="/consultant">AI Consultant</a>
+        <a href="/timeline">Timeline</a>
+        <a href="/comparison">Comparison</a>
+        <a href="/scholarships">Scholarships</a>
+        <a href="/calculator">Cost Calculator</a>
+    </div>
+</nav>
+
+<section>
+
+    <div class="hero">
+        <h1><i class="fa-solid fa-building-columns"></i> Korean Universities</h1>
+        <p>
+            Explore universities across Korea and find
+            the best match for your academic journey.
+        </p>
+    </div>
+
+    <div class="card">
+
+        <h2>Search Universities</h2>
+
+        <form action="/universities" method="GET">
+
+            <input
+                type="text"
+                name="keyword"
+                placeholder="Search by university or city..."
+            >
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+    <p>
+        <strong>Total Universities:</strong>
+        <%= universities.length %>
+    </p>
+
+    <% universities.forEach(university => { %>
+
+        <div class="card uni-card">
+
+            <div class="uni-info">
+
+                <h2>
+                    <a href="/university/<%= university.id %>">
+                        <%= university.name %>
+                    </a>
+                </h2>
+
+                <p><strong><i class="fa-solid fa-location-dot"></i>Location:</strong> <%= university.location %></p>
+                <p><strong><i class="fa-solid fa-building-columns"></i>Type:</strong> <%= university.type %></p>
+                <p><strong><i class="fa-solid fa-layer-group"></i>Major:</strong> <%= university.major %></p>
+                <p><strong><i class="fa-solid fa-note-sticky"></i>TOPIK Requirement:</strong> <%= university.topik %></p>
+                <p>
+                    <a href="<%= university.link %>" target="_blank">
+                        <strong><i class="fa-solid fa-globe"></i>Official Website</strong>
+                    </a>
+                </p>
+
+                <a href="/university/<%= university.id %>">
+                    <button>View Details</button>
+                </a>
+
+            </div>
+
+            <div class="uni-logo">
+                <img src="/images/<%= university.id %>.png" alt="logo">
+            </div>
+
+        </div>
+
+    <% }) %>
+
+</section>
+
+<footer>
+    <hr>
+    <p>© 2026 KUni World. All Rights Reserved.</p>
+    <p>Your Gateway to Korean Universities</p>
+</footer>
+    <script>
+
+    function toggleMenu() {
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        navLinks.classList.toggle("show");
+
+        if (navLinks.classList.contains("show")) {
+            menuBtn.innerHTML = "✕";
+        } else {
+            menuBtn.innerHTML = "☰";
+        }
+
+    }
+
+    </script>
+</body>
+</html>

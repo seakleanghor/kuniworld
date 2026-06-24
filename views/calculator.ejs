@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Cost Calculator | KUni World</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo">
+        <img src="/images/logo.png" alt="KUni World">
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()" id="menuBtn">
+        ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/universities">Universities</a>
+        <a href="/consultant">AI Consultant</a>
+        <a href="/timeline">Timeline</a>
+        <a href="/comparison">Comparison</a>
+        <a href="/scholarships">Scholarships</a>
+        <a href="/calculator">Cost Calculator</a>
+    </div>
+</nav>
+
+<section>
+
+    <div class="hero">
+        <h1><i class="fa-solid fa-money-bill-wave"></i> Study Cost Calculator</h1>
+        <p>Estimate your annual study expenses in Korea.</p>
+    </div>
+
+    <div class="card">
+
+        <h2>Preset Budgets</h2>
+
+        <button onclick="setPreset('cheap')">Cheap Student</button>
+        <button onclick="setPreset('medium')">Medium Student</button>
+        <button onclick="setPreset('expensive')">Expensive Student</button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Enter Your Estimated Costs</h2>
+
+        <label><i class="fa-solid fa-graduation-cap"></i>Tuition Fee (KRW)</label>
+        <br>
+        <input type="number" id="tuition" placeholder="3000000">
+        <br><br>
+
+        <label><i class="fa-solid fa-wallet"></i>Monthly Living Cost (KRW)</label>
+        <br>
+        <input type="number" id="living" placeholder="600000">
+        <br><br>
+
+        <label><i class="fa-solid fa-house"></i>Dormitory Cost (KRW)</label>
+        <br>
+        <input type="number" id="dorm" placeholder="1200000">
+        <br><br>
+
+        <button onclick="calculateCost()">
+            Calculate Cost
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h2><i class="fa-solid fa-chart-column"></i>Result</h2>
+
+        <h3 id="result">
+            Enter your expenses and click Calculate.
+        </h3>
+
+    </div>
+
+    <div class="card">
+
+        <h2><i class="fa-solid fa-lightbulb"></i>Average Student Budget</h2>
+
+        <ul>
+            <li>Tuition: 3,000,000 ~ 6,000,000 KRW per semester</li>
+            <li>Living Expenses: 500,000 ~ 1,000,000 KRW per month</li>
+            <li>Dormitory: 800,000 ~ 2,000,000 KRW per semester</li>
+            <li>Health Insurance: ~70,000 KRW per month</li>
+        </ul>
+
+    </div>
+
+</section>
+
+<footer>
+    <hr>
+    <p>© 2026 KUni World. All Rights Reserved.</p>
+    <p>Your Gateway to Korean Universities</p>
+</footer>
+
+<script>
+
+function setPreset(type) {
+
+    if (type === 'cheap') {
+        document.getElementById('tuition').value = 2500000;
+        document.getElementById('living').value = 500000;
+        document.getElementById('dorm').value = 800000;
+    }
+
+    if (type === 'medium') {
+        document.getElementById('tuition').value = 3500000;
+        document.getElementById('living').value = 700000;
+        document.getElementById('dorm').value = 1200000;
+    }
+
+    if (type === 'expensive') {
+        document.getElementById('tuition').value = 6000000;
+        document.getElementById('living').value = 1000000;
+        document.getElementById('dorm').value = 2000000;
+    }
+}
+
+function calculateCost() {
+
+    const tuition = Number(document.getElementById('tuition').value);
+    const living = Number(document.getElementById('living').value);
+    const dorm = Number(document.getElementById('dorm').value);
+
+    const total = tuition + (living * 12) + dorm;
+
+    document.getElementById('result').innerHTML =
+        "Estimated Annual Cost: " + total.toLocaleString() + " KRW<br><br>" +
+        "Estimated Monthly Budget: " + Math.round(total / 12).toLocaleString() + " KRW";
+}
+
+</script>
+    <script>
+
+    function toggleMenu() {
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        navLinks.classList.toggle("show");
+
+        if (navLinks.classList.contains("show")) {
+            menuBtn.innerHTML = "✕";
+        } else {
+            menuBtn.innerHTML = "☰";
+        }
+
+    }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Student Consultant | KUni World</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo">
+        <img src="/images/logo.png" alt="KUni World">
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()" id="menuBtn">
+        ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/universities">Universities</a>
+        <a href="/consultant">AI Consultant</a>
+        <a href="/timeline">Timeline</a>
+        <a href="/comparison">Comparison</a>
+        <a href="/scholarships">Scholarships</a>
+        <a href="/calculator">Cost Calculator</a>
+    </div>
+</nav>
+
+<section>
+
+    <div class="hero">
+        <h1><i class="fa-solid fa-microchip"></i> AI Student Consultant</h1>
+        <p>
+            Receive personalized university recommendations
+            based on your preferences.
+        </p>
+    </div>
+
+    <div class="card">
+
+        <h2>Student Information</h2>
+
+        <form action="/consultant-result" method="GET">
+
+            <label><strong>Preferred City:</strong></label>
+            <br>
+
+            <select name="location">
+                <option>Seoul</option>
+                <option>Busan</option>
+                <option>Incheon</option>
+                <option>Daejeon</option>
+                <option>Daegu</option>
+                <option>Gwangju</option>
+                <option>Jeju</option>
+                <option>Gangwon</option>
+                <option>Jeonbuk</option>
+                <option>Chungbuk</option>
+                <option>Ulsan</option>
+            </select>
+
+            <br><br>
+
+            <label><strong>TOPIK Level:</strong></label>
+            <br>
+
+            <select name="topik">
+                <option>Level 1</option>
+                <option>Level 2</option>
+                <option>Level 3</option>
+                <option>Level 4</option>
+                <option>Level 5</option>
+                <option>Level 6</option>
+            </select>
+
+            <br><br>
+
+            <label><strong>Preferred Major:</strong></label>
+            <br>
+
+            <select name="major">
+                <option>Computer Science</option>
+                <option>Artificial Intelligence</option>
+                <option>Business Administration</option>
+                <option>Mechanical Engineering</option>
+                <option>Tourism Management</option>
+                <option>Data Science</option>
+            </select>
+
+            <br><br>
+
+            <button type="submit">
+                Get Recommendation
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="card">
+
+        <h2>How It Works</h2>
+
+        <ul>
+            <li>Select your preferred city.</li>
+            <li>Choose your TOPIK level.</li>
+            <li>Select your preferred major.</li>
+            <li>Receive a personalized recommendation.</li>
+        </ul>
+
+    </div>
+
+</section>
+
+<footer>
+    <hr>
+    <p>© 2026 KUni World. All Rights Reserved.</p>
+    <p>Your Gateway to Korean Universities</p>
+</footer>
+    <script>
+
+    function toggleMenu() {
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        navLinks.classList.toggle("show");
+
+        if (navLinks.classList.contains("show")) {
+            menuBtn.innerHTML = "✕";
+        } else {
+            menuBtn.innerHTML = "☰";
+        }
+
+    }
+
+    </script>
+</body>
+</html>

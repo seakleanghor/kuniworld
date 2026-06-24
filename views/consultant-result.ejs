@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>AI Recommendation Result | KUni World</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo">
+        <img src="/images/logo.png" alt="KUni World">
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()" id="menuBtn">
+        ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/universities">Universities</a>
+        <a href="/consultant">AI Consultant</a>
+        <a href="/timeline">Timeline</a>
+        <a href="/comparison">Comparison</a>
+        <a href="/scholarships">Scholarships</a>
+        <a href="/calculator">Cost Calculator</a>
+    </div>
+
+</nav>
+
+<section>
+
+
+<div class="hero">
+    <h1><i class="fa-solid fa-microchip"></i> AI Recommendation Result</h1>
+    <p>Your personalized university recommendations</p>
+</div>
+
+<div class="card">
+
+    <h2>Your Preferences</h2>
+
+    <p><strong><i class="fa-solid fa-location-dot"></i>Preferred Location:</strong> <%= location %></p>
+
+    <p><strong><i class="fa-solid fa-note-sticky"></i>TOPIK Level:</strong> <%= topik %></p>
+
+    <% if (typeof major !== 'undefined') { %>
+        <p><strong><i class="fa-solid fa-layer-group"></i>Preferred Major:</strong> <%= major %></p>
+    <% } %>
+
+</div>
+
+<div class="card">
+
+    <h2><i class="fa-solid fa-microchip"></i>AI Analysis</h2>
+
+    <% if (recommendations.length > 0) { %>
+
+        <p>
+            Based on your selected preferences,
+            we found <strong><%= recommendations.length %></strong>
+            universities that match your profile.
+        </p>
+
+        <p>
+            We recommend comparing university rankings,
+            tuition fees, scholarships, and majors before
+            making your final decision.
+        </p>
+
+    <% } else { %>
+
+        <p>
+            No universities match your current criteria.
+            Consider choosing a different location or TOPIK level.
+        </p>
+
+    <% } %>
+
+</div>
+
+<h2>Recommended Universities</h2>
+
+<% if (recommendations.length === 0) { %>
+
+    <div class="card">
+
+        <h3>No Matching Universities Found</h3>
+
+        <p>
+            Please try different preferences.
+        </p>
+
+    </div>
+
+<% } else { %>
+
+    <% recommendations.forEach(university => { %>
+
+        <div class="card uni-card">
+
+            <div class="uni-info">
+
+                <h2><%= university.name %></h2>
+
+                <p><strong><i class="fa-solid fa-location-dot"></i>Location:</strong> <%= university.location %></p>
+
+                <p><strong><i class="fa-solid fa-house"></i>Type:</strong> <%= university.type %></p>
+
+                <p><strong><i class="fa-solid fa-layer-group"></i>Major:</strong> <%= university.major %></p>
+
+                <p><strong><i class="fa-solid fa-money-bill-wave"></i>Tuition:</strong> <%= university.tuition %></p>
+
+                <p><strong><i class="fa-solid fa-note-sticky"></i>TOPIK:</strong> <%= university.topik %></p>
+
+                <p><strong><i class="fa-solid fa-house"></i>Dormitory:</strong> <%= university.dormitory %></p>
+
+                <p><strong><i class="fa-solid fa-gift"></i>Scholarship:</strong> <%= university.scholarship %></p>
+
+                <p><strong><i class="fa-solid fa-trophy"></i>Ranking:</strong> <%= university.ranking %></p>
+
+                <p><strong><i class="fa-solid fa-microchip"></i>Match Score:</strong> 95%</p>
+
+                <a href="/university/<%= university.id %>">
+                    <button>View Details</button>
+                </a>
+
+            </div>
+
+            <div class="uni-logo">
+                <img
+                    src="/images/<%= university.id %>.png"
+                    alt="<%= university.name %> Logo"
+                >
+            </div>
+
+        </div>
+
+    <% }) %>
+
+<% } %>
+
+<br>
+
+<a href="/consultant">
+    <button>Try Again</button>
+</a>
+
+</section>
+
+<footer>
+    <hr>
+    <p>© 2026 KUni World. All Rights Reserved.</p>
+    <p>Your Gateway to Korean Universities</p>
+</footer>
+    <script>
+
+    function toggleMenu() {
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        navLinks.classList.toggle("show");
+
+        if (navLinks.classList.contains("show")) {
+            menuBtn.innerHTML = "✕";
+        } else {
+            menuBtn.innerHTML = "☰";
+        }
+
+    }
+
+    </script>
+</body>
+</html>
